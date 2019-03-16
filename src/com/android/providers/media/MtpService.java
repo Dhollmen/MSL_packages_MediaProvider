@@ -66,7 +66,7 @@ public class MtpService extends Service {
         @Override
         public void onStorageStateChanged(String path, String oldState, String newState) {
             synchronized (mBinder) {
-                Log.d(TAG, "onStorageStateChanged " + path + " " + oldState + " -> " + newState);
+                //Log.d(TAG, "onStorageStateChanged " + path + " " + oldState + " -> " + newState);
                 if (Environment.MEDIA_MOUNTED.equals(newState)) {
                     volumeMountedLocked(path);
                 } else if (Environment.MEDIA_MOUNTED.equals(oldState)) {
@@ -163,7 +163,7 @@ public class MtpService extends Service {
             }
             mServer.start();
         } else if (mServer != null && !isCurrentUser) {
-            Log.d(TAG, "no longer current user; shutting down MTP server");
+            //Log.d(TAG, "no longer current user; shutting down MTP server");
             // Internally, kernel will close our FD, and server thread will
             // handle cleanup.
             mServer = null;
@@ -226,9 +226,9 @@ public class MtpService extends Service {
         if (storage.getStorageId() == StorageVolume.STORAGE_ID_INVALID) {
             Log.w(TAG, "Ignoring volume with invalid MTP storage ID: " + storage);
             return;
-        } else {
-            Log.d(TAG, "Adding MTP storage 0x" + Integer.toHexString(storage.getStorageId())
-                    + " at " + storage.getPath());
+        //} else {
+        //    Log.d(TAG, "Adding MTP storage 0x" + Integer.toHexString(storage.getStorageId())
+        //            + " at " + storage.getPath());
         }
 
         if (mDatabase != null) {
@@ -246,8 +246,8 @@ public class MtpService extends Service {
             return;
         }
 
-        Log.d(TAG, "Removing MTP storage " + Integer.toHexString(storage.getStorageId()) + " at "
-                + storage.getPath());
+        //Log.d(TAG, "Removing MTP storage " + Integer.toHexString(storage.getStorageId()) + " at "
+        //        + storage.getPath());
         if (mDatabase != null) {
             mDatabase.removeStorage(storage);
         }

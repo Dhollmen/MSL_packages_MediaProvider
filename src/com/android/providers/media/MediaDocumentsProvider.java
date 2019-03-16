@@ -934,7 +934,7 @@ public class MediaDocumentsProvider extends DocumentsProvider {
             if (cursor.moveToFirst()) {
                 return cursor.getInt(ImageOrientationQuery.ORIENTATION);
             } else {
-                Log.w(TAG, "Missing orientation data for " + id);
+                //Log.w(TAG, "Missing orientation data for " + id);
                 return 0;
             }
         } finally {

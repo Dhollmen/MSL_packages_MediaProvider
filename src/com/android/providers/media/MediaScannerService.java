@@ -210,9 +210,9 @@ public class MediaScannerService extends Service implements Runnable
             new IMediaScannerService.Stub() {
         public void requestScanFile(String path, String mimeType, IMediaScannerListener listener)
         {
-            if (false) {
-                Log.d(TAG, "IMediaScannerService.scanFile: " + path + " mimeType: " + mimeType);
-            }
+            //if (false) {
+            //    Log.d(TAG, "IMediaScannerService.scanFile: " + path + " mimeType: " + mimeType);
+            //}
             Bundle args = new Bundle();
             args.putString("filepath", path);
             args.putString("mimetype", mimeType);

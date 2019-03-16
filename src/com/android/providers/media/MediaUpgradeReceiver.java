@@ -64,7 +64,7 @@ public class MediaUpgradeReceiver extends BroadcastReceiver {
                 String file = files[i];
                 if (MediaProvider.isMediaDatabaseName(file)) {
                     long startTime = System.currentTimeMillis();
-                    Slog.i(TAG, "---> Start upgrade of media database " + file);
+                    //Slog.i(TAG, "---> Start upgrade of media database " + file);
                     SQLiteDatabase db = null;
                     try {
                         MediaProvider.DatabaseHelper helper = new MediaProvider.DatabaseHelper(
@@ -78,8 +78,8 @@ public class MediaUpgradeReceiver extends BroadcastReceiver {
                             db.close();
                         }
                     }
-                    Slog.i(TAG, "<--- Finished upgrade of media database " + file
-                            + " in " + (System.currentTimeMillis()-startTime) + "ms");
+                    //Slog.i(TAG, "<--- Finished upgrade of media database " + file
+                    //        + " in " + (System.currentTimeMillis()-startTime) + "ms");
                 }
             }
         } catch (Throwable t) {

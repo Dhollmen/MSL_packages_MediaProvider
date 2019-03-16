@@ -280,7 +280,7 @@ public class MediaProvider extends ContentProvider {
 
                             // don't send objectRemoved events - MTP be sending StorageRemoved anyway
                             mDisableMtpObjectCallbacks = true;
-                            Log.d(TAG, "deleting all entries for storage " + storage);
+                            //Log.d(TAG, "deleting all entries for storage " + storage);
                             SQLiteDatabase db = database.getWritableDatabase();
                             // First clear the file path to disable the _DELETE_FILE database hook.
                             // We do this to avoid deleting files if the volume is remounted while
@@ -333,7 +333,7 @@ public class MediaProvider extends ContentProvider {
             // do nothing if the operation originated from MTP
             if (mDisableMtpObjectCallbacks) return;
 
-            Log.d(TAG, "object removed " + args[0]);
+            //Log.d(TAG, "object removed " + args[0]);
             IMtpService mtpService = mMtpService;
             if (mtpService != null) {
                 try {
@@ -1796,7 +1796,7 @@ public class MediaProvider extends ContentProvider {
         if (fromVersion < 510 && Environment.isExternalStorageEmulated()) {
             // File.fixSlashes() removes any trailing slashes
             final String externalStorage = Environment.getExternalStorageDirectory().toString();
-            Log.d(TAG, "Adjusting external storage paths to: " + externalStorage);
+            //Log.d(TAG, "Adjusting external storage paths to: " + externalStorage);
 
             final String[] tables = {
                     TABLE_FILES, TABLE_ALBUM_ART, TABLE_THUMBNAILS, TABLE_VIDEO_THUMBNAILS };
@@ -5598,8 +5598,8 @@ public class MediaProvider extends ContentProvider {
                         }
                         if (recentDbFile != null) {
                             if (recentDbFile.renameTo(dbFile)) {
-                                Log.d(TAG, "renamed database " + recentDbFile.getName() +
-                                        " to " + EXTERNAL_DATABASE_NAME);
+                                //Log.d(TAG, "renamed database " + recentDbFile.getName() +
+                                //        " to " + EXTERNAL_DATABASE_NAME);
                             } else {
                                 Log.e(TAG, "Failed to rename database " + recentDbFile.getName() +
                                         " to " + EXTERNAL_DATABASE_NAME);
